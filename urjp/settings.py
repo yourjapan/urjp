@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'sk.apps.StockKeepConfig',
     'rest_framework.apps.RestFrameworkConfig',
     #'django.contrib.admin',
     'django.contrib.auth',
