@@ -7,8 +7,16 @@ class EbayParser(BaseParser):
     media_type = 'text/xml'
     tree = None
     
+    # https://developer.ebay.com/DevZone/XML/Docs/Reference/eBay/GetItemTransactions.html
     def parse(self, stream, media_type=None, parser_context=None):
         self.tree = ElementTree.parse(stream)
+        print({
+            'datetime': self.get('InvoiceSentTime'),
+            'item': [self.get('SKU'), self.get('Title')],
+            'n': self.get('QuantityPurchased'),
+            'buyer': self.get('StaticAlias'),
+            'buyer2': self.get('UserID', 'Buyer'),
+        })
         return {
             'item': self.get('SKU'),
             'n': self.get('QuantityPurchased'),
