@@ -31,7 +31,11 @@ class ExportViewSet(ModelViewSet):
 # ______________________________________________________________________________
 # Router
 
+from .eb.eb import EbayViewSet
+
+
 router = SimpleRouter()
 router.register(r'items', ItemViewSet)
 router.register(r'imports', ImportViewSet)
 router.register(r'exports', ExportViewSet)
+router.register(r'eb', EbayViewSet, basename='eb')
