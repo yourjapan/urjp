@@ -11,7 +11,7 @@ class EbayParser(BaseParser):
     def parse(self, stream, media_type=None, parser_context=None):
         self.tree = ElementTree.parse(stream)
         print({
-            'datetime': self.get('InvoiceSentTime'),
+            'datetime': self.get('PaymentTime'),
             'item': [self.get('SKU'), self.get('Title')],
             'n': self.get('QuantityPurchased'),
             'buyer': self.get('StaticAlias'),
