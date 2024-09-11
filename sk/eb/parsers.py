@@ -19,7 +19,7 @@ class EbayParser(BaseParser):
         })
         return {
             'item': self.get('SKU'),
-            'n': self.get('QuantityPurchased'),
+            'n': int(self.get('QuantityPurchased')),
         }
     
     def get(self, leaf, branch=None):
