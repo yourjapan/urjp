@@ -8,10 +8,7 @@ def populate_database(apps, schema_editor):
     with open('sk/migrations/db.txt') as f:
         with transaction.atomic():
             for e in f.readlines():
-                Item.objects.create(
-                    SKU=e,
-                    n=0,
-                )
+                Item.objects.create(SKU=e[:-1], n=0)
 
 
 class Migration(migrations.Migration):
